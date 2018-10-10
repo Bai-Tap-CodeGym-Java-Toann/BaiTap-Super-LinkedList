@@ -1,24 +1,18 @@
-public class Linked {
+package LinkedList;
+
+public class LinkedList extends Linked {
     private Node head;
     private int numNodes = 1;
 
-    public Linked(Object data) {
+    public LinkedList(Object data) {
         head = new Node(data);
     }
 
-    private class Node {
-        private Node next = null;
-        private Object data;
-
-        public Node(Object data) {
-            this.data = data;
-        }
-
-        public Object getData() {
-            return this.data;
-        }
+    public Node getHead() {
+        return head;
     }
 
+    @Override
     public void add(int index, Object data) {
         Node temp = moveToIndex(index - 1);
         if (temp == null) {
@@ -30,6 +24,7 @@ public class Linked {
         numNodes++;
     }
 
+    @Override
     public boolean remove(int index) {
         if (moveToIndex(index) == null) return false;
         if (index == 0) {
@@ -44,7 +39,6 @@ public class Linked {
         return true;
     }
 
-
     public void addFirst(Object data) {
         Node temp = head;
         head = new Node(data);
@@ -52,12 +46,14 @@ public class Linked {
         numNodes++;
     }
 
+
     public void addLast(Object data) {
         Node temp = moveToLastNode();
         temp.next = new Node(data);
         numNodes++;
     }
 
+    @Override
     public boolean remove(Object data) {
         Node temp = head;
         for (int i = 0; i < numNodes; i++) {
@@ -79,26 +75,29 @@ public class Linked {
         numNodes--;
     }
 
+
     public void removeLast() {
         Node temp = moveToIndex(numNodes - 2);
         temp.next = null;
         numNodes--;
     }
 
+    @Override
     public void clear() {
         head = null;
     }
 
-
-    public Object getNode(int index) {
-        return moveToIndex(index).getData();
+    @Override
+    public Node getNode(int index) {
+        return moveToIndex(index);
     }
 
+    @Override
     public int size() {
         return numNodes;
     }
 
-
+    @Override
     public void printList() {
         System.out.println("list (" + numNodes + ")");
         Node temp = head;
@@ -131,6 +130,7 @@ public class Linked {
         return cursor;
     }
 
+    @Override
     public boolean isContain(Object data) {
         Node temp = head;
         while (!(temp == null)) {
@@ -155,9 +155,9 @@ public class Linked {
     }
 
     @Override
-    public Linked clone() {
+    public LinkedList clone() {
         Node cloneCursor = head;
-        Linked clone = new Linked(cloneCursor.getData());
+        LinkedList clone = new LinkedList(cloneCursor.getData());
         for (int i = 1; i < numNodes; i++) {
             cloneCursor = cloneCursor.next;
             clone.addLast(cloneCursor.getData());
