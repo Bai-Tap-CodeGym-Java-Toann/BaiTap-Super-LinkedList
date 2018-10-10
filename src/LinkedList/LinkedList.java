@@ -8,6 +8,7 @@ public class LinkedList extends Linked {
         head = new Node(data);
     }
 
+    @Override
     public Node getHead() {
         return head;
     }
@@ -163,8 +164,5 @@ public class LinkedList extends Linked {
             clone.addLast(cloneCursor.getData());
         }
         return clone;
-    }
-    public Node getNext(Node to){
-        return to.next;
     }
 }

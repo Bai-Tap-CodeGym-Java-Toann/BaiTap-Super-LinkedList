@@ -15,13 +15,5 @@ public class Test {
 
         list.remove((Integer)12);
         list.printList();
-
-
-
-
-
-
-
-
     }
 }
