@@ -11,10 +11,11 @@ public class Test {
         list.addLast(10.993493);
         list.addLast(10);
         list.printList();
-
-        list.remove((Integer)10);
-        list.printList();
         System.out.println(list.isRound());
+
+        list.remove((Integer)12);
+        list.printList();
+
 
 
 

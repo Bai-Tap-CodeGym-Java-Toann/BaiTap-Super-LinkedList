@@ -164,4 +164,7 @@ public class LinkedList extends Linked {
         }
         return clone;
     }
+    public Node getNext(Node to){
+        return to.next;
+    }
 }

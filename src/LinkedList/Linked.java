@@ -34,11 +34,11 @@ public abstract class Linked {
     abstract boolean isContain(Object data);
 
     public boolean isRound() {
-        if (getNode(size()-1).next ==null){
-        if (getNode(size() - 1).next.equals(getHead())) {
-            return true;
+        if (!(getNode(size() - 1).next == null)) {
+            if (getNode(size() - 1).next.equals(getHead())) {
+                return true;
+            }
         }
         return false;
     }
-
 }
