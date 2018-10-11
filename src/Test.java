@@ -22,7 +22,7 @@ public class Test {
         list.remove(5);
         list.removeFirst();
         list.printList();
-        list.swap();
+        list.reverse();
         list.printList();
 
 

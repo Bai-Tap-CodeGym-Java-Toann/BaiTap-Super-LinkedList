@@ -123,6 +123,20 @@ public class DualLinkedList extends Linked {
     }
 
     //GET
+    protected Node getNode(int index, boolean formHead) {
+        if (formHead) {
+            return moveToIndex(index);
+        }
+        Node cursor = tail;
+        if (index < numNodes && index >= 0) {
+            for (int i = (size() - 1); i > index; i--) {
+                cursor = cursor.previous;
+            }
+            return cursor;
+        }
+        return null;
+    }
+
     public Node getNode(int index) {
         return moveToIndex(index);
     }
@@ -189,7 +203,7 @@ public class DualLinkedList extends Linked {
         return clone;
     }
 
-    public void swap() {
+    public void reverse() {
         Node cursor = head;
         cursor.previous = cursor.next;
         cursor.next = null;
@@ -226,21 +240,6 @@ public class DualLinkedList extends Linked {
         }
         return null;
     }
-
-    protected Node moveToIndex(int index, boolean formHead) {
-        if (formHead) {
-            return moveToIndex(index);
-        }
-        Node cursor = tail;
-        if (index < numNodes && index >= 0) {
-            for (int i = (size() - 1); i > index; i--) {
-                cursor = cursor.previous;
-            }
-            return cursor;
-        }
-        return null;
-    }
-
 
     protected Node moveToTail() {
         Node cursor = head;
