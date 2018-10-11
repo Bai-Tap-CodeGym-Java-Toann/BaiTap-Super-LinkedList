@@ -1,44 +1,42 @@
 package LinkedList;
 
+import LinkedList.*;
+
 public abstract class Linked {
+    abstract Object getNode(int index);
 
-    public class Node {
-        protected Node next = null;
-        protected Object data;
-
-        protected Node(Object data) {
-            this.data = data;
-        }
-
-        public Object getData() {
-            return this.data;
-        }
-    }
-
-    abstract Node getHead();
 
     abstract void add(int index, Object data);
+
+    abstract void addFirst(Object data);
+
+    abstract void addLast(Object data);
 
     abstract boolean remove(Object data);
 
     abstract boolean remove(int index);
 
-    abstract void clear();
+    abstract void removeFirst();
 
-    abstract void printList();
+    abstract void removeLast();
+
+    abstract void clear();
 
     abstract int size();
 
-    abstract Node getNode(int index);
+    abstract void printList();
 
     abstract boolean isContain(Object data);
 
-    public boolean isRound() {
-        if (!(getNode(size() - 1).next == null)) {
-            if (getNode(size() - 1).next.equals(getHead())) {
-                return true;
-            }
-        }
-        return false;
+    abstract int indexOf(Object data);
+
+    abstract boolean isRound();
+
+    public static boolean isDual(Object list) {
+        if (list.getClass() == DualLinkedList.class ||
+                list.getClass() == RoundDualLinkedList.class) {
+            return true;
+        } else return false;
     }
+
 }

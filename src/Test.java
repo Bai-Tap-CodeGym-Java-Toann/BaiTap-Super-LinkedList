@@ -1,8 +1,11 @@
-import LinkedList.LinkedList;
+import LinkedList.*;
 
 public class Test {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList(12);
+        DualLinkedList list = new RoundDualLinkedList(12);
+        System.out.println(list.isRound());
+        System.out.println(Linked.isDual(list));
+
         list.addLast(new int[1][2]);
         list.addLast("toan");
         list.addLast(1232);
@@ -11,9 +14,24 @@ public class Test {
         list.addLast(10.993493);
         list.addLast(10);
         list.printList();
-        System.out.println(list.isRound());
 
-        list.remove((Integer)12);
+
+
         list.printList();
+        list.addLast(232323);
+        list.remove(5);
+        list.removeFirst();
+        list.printList();
+        list.swap();
+        list.printList();
+
+
+
+    }
+
+    static void printpack(LinkedList list) {
+        System.out.println(list.getTail().getNext());
+        System.out.println(list.getHead());
+        System.out.println(list.isRound());
     }
 }

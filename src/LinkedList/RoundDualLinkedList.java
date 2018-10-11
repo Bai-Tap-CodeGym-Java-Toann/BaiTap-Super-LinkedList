@@ -1,12 +1,11 @@
 package LinkedList;
 
-public class RoundLinkedList extends LinkedList {
+public class RoundDualLinkedList extends DualLinkedList {
 
-    public RoundLinkedList(Object data) {
+    public RoundDualLinkedList(Object data) {
         super(data);
         roundList();
     }
-
     //OVERRIDE
 
     @Override
@@ -36,6 +35,7 @@ public class RoundLinkedList extends LinkedList {
     //SET
     private void roundList() {
         super.tail.next = super.head;
+        super.head.previous = super.tail;
     }
 
     public boolean setHeadPoint(int index) {
@@ -43,7 +43,8 @@ public class RoundLinkedList extends LinkedList {
             Node temp = moveToIndex(index - 1);
             super.head = moveToIndex(index);
             super.tail = temp;
-            roundList();
+            super.tail.next = super.head;
+            super.head.previous = super.tail;
             return true;
         }
         return false;
@@ -55,9 +56,12 @@ public class RoundLinkedList extends LinkedList {
             Node temp = moveToIndex(index - 1);
             super.head = moveToIndex(index);
             super.tail = temp;
-            roundList();
+            super.tail.next = super.head;
+            super.head.previous = super.tail;
             return true;
         }
         return false;
     }
+
+
 }
